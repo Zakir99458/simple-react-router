@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const Friend = (props) => {
     const {id,name, email, website, address} = props.friend;
+
+    const history = useHistory()
     console.log(props);
 
     const fiendStyle = {
@@ -10,7 +12,10 @@ const Friend = (props) => {
         padding: '10x',
         borderRadius: '10px'
     }
-
+    
+    const handleClick = () => {
+        history.push("/home");
+      }
     return (
         <div style={fiendStyle}>
             <h2>I am {name}</h2>
@@ -18,6 +23,15 @@ const Friend = (props) => {
             <h3>Website: {website}</h3>
             <p><small>Address: {address.city}</small></p>
             <Link to={`/friend/${id}`}>Visit me</Link>
+            <br />
+            <Link to={`/friend/${id}`}>
+                <button>Visit me</button>
+            </Link>
+            <br />
+            <button type="button" onClick={handleClick}>
+                Go home
+            </button>
+
         </div>
     );
 };
