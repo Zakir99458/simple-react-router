@@ -5,20 +5,20 @@ import About from './components/About/About';
 import Friends from './components/Friends/Friends';
 import Error from './components/Error/Error';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Switch } from 'react-router-dom/cjs/react-router-dom';
-
-// Your component code...
-
+import { Link, Switch } from 'react-router-dom/cjs/react-router-dom';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header></Header>
+
         <Switch>
-          <Route path='/home'>
+          <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route exact path="/">
+          <Route path='/home'>
             <Home></Home>
           </Route>
           <Route path="/about">
