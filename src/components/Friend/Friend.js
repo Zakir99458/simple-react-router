@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const Friend = (props) => {
-    const {name, email, website, address} = props.friend;
+    const {id,name, email, website, address} = props.friend;
     console.log(props);
 
     const fiendStyle = {
@@ -16,6 +17,7 @@ const Friend = (props) => {
             <h3>Mail me: {email}</h3>
             <h3>Website: {website}</h3>
             <p><small>Address: {address.city}</small></p>
+            <Link to={`/friend/${id}`}>Visit me</Link>
         </div>
     );
 };

@@ -7,6 +7,7 @@ import Error from './components/Error/Error';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Link, Switch } from 'react-router-dom/cjs/react-router-dom';
 import Header from './components/Header/Header';
+import FriendDetail from './components/FrinedDetail/FriendDetail';
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
           <Route path="/friends">
             <Friends></Friends>
           </Route>
-          <Route>
+          <Route path="/friend/:friendId">
+            <FriendDetail></FriendDetail>
+          </Route>
+          <Route path="*">
             <Error></Error>
           </Route>
         </Switch>
